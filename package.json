@@ -1,0 +1,16 @@
+{
+  "name": "journey-offers",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "联运询价资料中旅客范围与服务引用的采集",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test --test-concurrency=1",
+    "demo": "node scripts/demo.mjs",
+    "start": "node scripts/start.mjs"
+  }
+}

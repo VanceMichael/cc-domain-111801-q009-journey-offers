@@ -1,0 +1,66 @@
+{
+  "scope": "Q1",
+  "resources": {
+    "/shopping/Q1": {
+      "body": {
+        "query": "Q1",
+        "offers": [
+          {
+            "id": "O100",
+            "href": "/shopping/Q1/records/O100"
+          }
+        ]
+      }
+    },
+    "/shopping/Q1/records/O100": {
+      "body": {
+        "offer": "O100",
+        "query": "Q1",
+        "currency": "CNY",
+        "total": "1250.50",
+        "segments": [
+          "SHA-SIN"
+        ],
+        "passengers": [
+          "ADT1"
+        ],
+        "expires": "2027-01-01T00:00:00Z"
+      }
+    },
+    "/shopping/Q1/relations/O100": {
+      "body": {
+        "services": [
+          {
+            "id": "S1",
+            "passengers": [
+              "ADT1"
+            ],
+            "segments": [
+              "SHA-SIN"
+            ],
+            "ref": "/shopping/Q1/services/S1"
+          }
+        ]
+      }
+    }
+  },
+  "portal": {
+    "identity": "offer",
+    "records": {
+      "O100": {
+        "offer": "O100",
+        "query": "Q1",
+        "currency": "CNY",
+        "total": "1250.50",
+        "segments": [
+          "SHA-SIN"
+        ],
+        "passengers": [
+          "ADT1"
+        ],
+        "expires": "2027-01-01T00:00:00Z"
+      }
+    },
+    "version": 1
+  }
+}
