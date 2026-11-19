@@ -1,0 +1,149 @@
+{
+  "scope": "Q9",
+  "resources": {
+    "/shopping/Q9": {
+      "body": {
+        "query": "Q9",
+        "currency": "CNY",
+        "passengers": ["ADT1", "INF1"],
+        "segments": ["SHA-SIN", "SIN-SHA"],
+        "offers": [
+          { "id": "O200", "href": "/shopping/Q9/records/O200", "relations": "/shopping/Q9/relations/O200" },
+          { "id": "O201", "href": "/shopping/Q9/records/O201", "relations": "/shopping/Q9/relations/O201" },
+          { "id": "O202", "href": "/shopping/Q9/records/O202", "relations": "/shopping/Q9/relations/O202" },
+          { "id": "O203", "href": "/shopping/Q9/records/O203", "relations": "/shopping/Q9/relations/O203" },
+          { "id": "O204", "href": "/shopping/Q9/records/O204", "relations": "/shopping/Q9/relations/O204" }
+        ]
+      }
+    },
+    "/shopping/Q9/records/O200": {
+      "body": {
+        "offer": "O200", "query": "Q9", "currency": "CNY", "total": "2000.00",
+        "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"],
+        "expires": "2027-03-01T00:00:00Z"
+      }
+    },
+    "/shopping/Q9/relations/O200": {
+      "body": {
+        "query": "Q9", "offer": "O200",
+        "services": [
+          { "id": "B1", "type": "baggage", "passengers": ["ADT1"], "segments": ["SHA-SIN"], "ref": "/shopping/Q9/services/B1" },
+          { "id": "R1", "type": "rebooking", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "ref": "/shopping/Q9/services/R1" },
+          { "id": "A1", "type": "ancillary", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "ref": "/shopping/Q9/services/A1" }
+        ]
+      }
+    },
+    "/shopping/Q9/services/B1": {
+      "body": { "query": "Q9", "service": "B1", "type": "baggage", "passengers": ["ADT1"], "segments": ["SHA-SIN"], "expires": "2027-03-01T00:00:00Z", "amount": "0.00" }
+    },
+    "/shopping/Q9/services/R1": {
+      "body": { "query": "Q9", "service": "R1", "type": "rebooking", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "expires": "2027-03-01T00:00:00Z", "amount": "200.00" }
+    },
+    "/shopping/Q9/services/A1": {
+      "body": { "query": "Q9", "service": "A1", "type": "ancillary", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "expires": "2027-03-01T00:00:00Z", "amount": "60.00" }
+    },
+    "/shopping/Q9/records/O201": {
+      "body": {
+        "offer": "O201", "query": "Q9", "currency": "CNY", "total": "2100.00",
+        "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"],
+        "expires": "2025-01-01T00:00:00Z"
+      }
+    },
+    "/shopping/Q9/relations/O201": {
+      "body": {
+        "query": "Q9", "offer": "O201",
+        "services": [
+          { "id": "B2", "type": "baggage", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "ref": "/shopping/Q9/services/B2" },
+          { "id": "R2", "type": "rebooking", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "ref": "/shopping/Q9/services/R2" },
+          { "id": "A2", "type": "ancillary", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "ref": "/shopping/Q9/services/A2" }
+        ]
+      }
+    },
+    "/shopping/Q9/services/B2": {
+      "body": { "query": "Q9", "service": "B2", "type": "baggage", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "expires": "2025-01-01T00:00:00Z", "amount": "0.00" }
+    },
+    "/shopping/Q9/services/R2": {
+      "body": { "query": "Q9", "service": "R2", "type": "rebooking", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "expires": "2025-01-01T00:00:00Z", "amount": "220.00" }
+    },
+    "/shopping/Q9/services/A2": {
+      "body": { "query": "Q9", "service": "A2", "type": "ancillary", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "expires": "2025-01-01T00:00:00Z", "amount": "70.00" }
+    },
+    "/shopping/Q9/records/O202": {
+      "body": {
+        "offer": "O202", "query": "Q9", "currency": "CNY", "total": "2200.00",
+        "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"],
+        "expires": "2027-03-01T00:00:00Z"
+      }
+    },
+    "/shopping/Q9/relations/O202": {
+      "body": {
+        "query": "Q9", "offer": "O202",
+        "services": [
+          { "id": "B3", "type": "baggage", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "ref": "/shopping/Q9/services/B3-good" },
+          { "id": "B3", "type": "baggage", "passengers": ["ADT1"], "segments": ["SHA-SIN"], "ref": "/shopping/Q9/services/B3-bad" },
+          { "id": "R3", "type": "rebooking", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "ref": "/shopping/Q9/services/R3" },
+          { "id": "A3", "type": "ancillary", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "ref": "/shopping/Q9/services/A3" }
+        ]
+      }
+    },
+    "/shopping/Q9/services/B3-good": {
+      "body": { "query": "Q9", "service": "B3", "type": "baggage", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "expires": "2027-03-01T00:00:00Z", "amount": "0.00" }
+    },
+    "/shopping/Q9/services/B3-bad": {
+      "body": { "query": "Q9", "service": "B3", "type": "baggage", "passengers": ["ADT1"], "segments": ["SHA-SIN"], "expires": "2027-03-01T00:00:00Z", "amount": "0.00" }
+    },
+    "/shopping/Q9/services/R3": {
+      "body": { "query": "Q9", "service": "R3", "type": "rebooking", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "expires": "2027-03-01T00:00:00Z", "amount": "240.00" }
+    },
+    "/shopping/Q9/services/A3": {
+      "body": { "query": "Q9", "service": "A3", "type": "ancillary", "passengers": ["ADT1", "INF1"], "segments": ["SHA-SIN", "SIN-SHA"], "expires": "2027-03-01T00:00:00Z", "amount": "80.00" }
+    },
+    "/shopping/Q9/records/O203": {
+      "body": {
+        "offer": "O203", "query": "Q9", "currency": "CNY", "total": "900.00",
+        "passengers": ["ADT1"], "segments": ["SHA-SIN"],
+        "expires": "2027-03-01T00:00:00Z",
+        "reissues": [
+          { "offer": "O201", "passengers": ["ADT1"], "segments": ["SHA-SIN"] }
+        ]
+      }
+    },
+    "/shopping/Q9/relations/O203": {
+      "body": {
+        "query": "Q9", "offer": "O203",
+        "services": [
+          { "id": "B4", "type": "baggage", "passengers": ["ADT1"], "segments": ["SHA-SIN"], "ref": "/shopping/Q9/services/B4" },
+          { "id": "R4", "type": "rebooking", "passengers": ["ADT1"], "segments": ["SHA-SIN"], "ref": "/shopping/Q9/services/R4" },
+          { "id": "A4", "type": "ancillary", "passengers": ["ADT1"], "segments": ["SHA-SIN"], "ref": "/shopping/Q9/services/A4" }
+        ]
+      }
+    },
+    "/shopping/Q9/services/B4": {
+      "body": { "query": "Q9", "service": "B4", "type": "baggage", "passengers": ["ADT1"], "segments": ["SHA-SIN"], "expires": "2027-03-01T00:00:00Z", "amount": "0.00" }
+    },
+    "/shopping/Q9/services/R4": {
+      "body": { "query": "Q9", "service": "R4", "type": "rebooking", "passengers": ["ADT1"], "segments": ["SHA-SIN"], "expires": "2027-03-01T00:00:00Z", "amount": "120.00" }
+    },
+    "/shopping/Q9/services/A4": {
+      "body": { "query": "Q9", "service": "A4", "type": "ancillary", "passengers": ["ADT1"], "segments": ["SHA-SIN"], "expires": "2027-03-01T00:00:00Z", "amount": "30.00" }
+    },
+    "/shopping/Q9/records/O204": {
+      "body": {
+        "offer": "O204", "query": "Q9", "currency": "USD", "total": "300.00",
+        "passengers": ["ADT1"], "segments": ["SHA-SIN"],
+        "expires": "2027-03-01T00:00:00Z"
+      }
+    },
+    "/shopping/Q9/relations/O204": {
+      "body": {
+        "query": "Q9", "offer": "O204",
+        "services": [
+          { "id": "B5", "type": "baggage", "passengers": ["ADT1"], "segments": ["SHA-SIN"], "ref": "/shopping/Q9/services/B5" }
+        ]
+      }
+    },
+    "/shopping/Q9/services/B5": {
+      "body": { "query": "Q9", "service": "B5", "type": "baggage", "passengers": ["ADT1"], "segments": ["SHA-SIN"], "expires": "2027-03-01T00:00:00Z", "amount": "0.00" }
+    }
+  }
+}

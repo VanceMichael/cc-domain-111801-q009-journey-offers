@@ -4,10 +4,18 @@
     "/shopping/Q1": {
       "body": {
         "query": "Q1",
+        "currency": "CNY",
+        "passengers": [
+          "ADT1"
+        ],
+        "segments": [
+          "SHA-SIN"
+        ],
         "offers": [
           {
             "id": "O100",
-            "href": "/shopping/Q1/records/O100"
+            "href": "/shopping/Q1/records/O100",
+            "relations": "/shopping/Q1/relations/O100"
           }
         ]
       }
@@ -29,9 +37,12 @@
     },
     "/shopping/Q1/relations/O100": {
       "body": {
+        "query": "Q1",
+        "offer": "O100",
         "services": [
           {
             "id": "S1",
+            "type": "baggage",
             "passengers": [
               "ADT1"
             ],
@@ -39,8 +50,75 @@
               "SHA-SIN"
             ],
             "ref": "/shopping/Q1/services/S1"
+          },
+          {
+            "id": "S2",
+            "type": "rebooking",
+            "passengers": [
+              "ADT1"
+            ],
+            "segments": [
+              "SHA-SIN"
+            ],
+            "ref": "/shopping/Q1/services/S2"
+          },
+          {
+            "id": "S3",
+            "type": "ancillary",
+            "passengers": [
+              "ADT1"
+            ],
+            "segments": [
+              "SHA-SIN"
+            ],
+            "ref": "/shopping/Q1/services/S3"
           }
         ]
+      }
+    },
+    "/shopping/Q1/services/S1": {
+      "body": {
+        "query": "Q1",
+        "service": "S1",
+        "type": "baggage",
+        "passengers": [
+          "ADT1"
+        ],
+        "segments": [
+          "SHA-SIN"
+        ],
+        "expires": "2027-01-01T00:00:00Z",
+        "amount": "0.00"
+      }
+    },
+    "/shopping/Q1/services/S2": {
+      "body": {
+        "query": "Q1",
+        "service": "S2",
+        "type": "rebooking",
+        "passengers": [
+          "ADT1"
+        ],
+        "segments": [
+          "SHA-SIN"
+        ],
+        "expires": "2027-01-01T00:00:00Z",
+        "amount": "300.00"
+      }
+    },
+    "/shopping/Q1/services/S3": {
+      "body": {
+        "query": "Q1",
+        "service": "S3",
+        "type": "ancillary",
+        "passengers": [
+          "ADT1"
+        ],
+        "segments": [
+          "SHA-SIN"
+        ],
+        "expires": "2027-01-01T00:00:00Z",
+        "amount": "50.00"
       }
     }
   },
