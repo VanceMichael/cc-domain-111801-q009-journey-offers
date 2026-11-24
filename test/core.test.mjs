@@ -10,7 +10,7 @@ import { interpret } from '../src/interpret.mjs';
 import { assess } from '../src/receiving.mjs';
 import { collect, preview } from '../src/app.mjs';
 
-const raw = {"offer": "O100", "query": "Q1", "currency": "CNY", "total": "1250.50", "segments": ["SHA-SIN"], "passengers": ["ADT1"], "expires": "2027-01-01T00:00:00Z"};
+const raw = {"offer": "O100", "query": "Q1", "currency": "CNY", "total": "1250.50", "segments": ["SHA-SIN", "SIN-SHA"], "passengers": ["ADT1", "INF1"], "expires": "2027-01-01T00:00:00Z"};
 const scope = "Q1";
 const fixture = JSON.parse(await readFile(new URL('../fixtures/source.json', import.meta.url), 'utf8'));
 
@@ -39,7 +39,10 @@ test('真实来源领取与重复收件保留单份原文依据', async () => {
     const second = await collect(client, archive, scope);
     assert.equal(first.complete, true);
     assert.equal(second.complete, true);
-    assert.equal(archive.records(scope).length, 1);
+    const offerReceipts = () => archive.records(scope).filter(item => !item.business_key.includes(':') || (item.business_key.startsWith(scope + ':') && !item.business_key.startsWith('dossier:') && !item.business_key.startsWith('statement:')));
+    assert.equal(offerReceipts().length, 1);
+    assert.equal(first.dossiers[0].status, 'incomplete');
+    assert.equal(second.dossiers[0].digest, first.dossiers[0].digest);
     const original = await archive.original(first.outcomes[0].digest);
     assert.deepEqual(JSON.parse(original.toString()), raw);
     assert.ok(source.accesses.some(item => item.path === "/shopping/Q1/records/O100"));
@@ -57,7 +60,7 @@ test('来源一次暂时失败可重试，永久缺件不虚报完成', async ()
     const result = await collect(new SourceClient(source.url), archive, scope);
     assert.equal(result.complete, false);
     assert.equal(result.outcomes[0].status, 'error');
-    assert.equal(archive.records(scope).length, 1);
+    assert.equal(archive.records(scope).filter(item => item.business_key === 'Q1:O100').length, 1);
   } finally { archive.close(); await source.close(); await rm(directory, { recursive: true, force: true }); }
 });
 
@@ -80,7 +83,7 @@ test('重开资料库保留收据与完整性检测', async () => {
   try {
     const first = await collect(new SourceClient(source.url), archive, scope);
     archive.close(); archive = await new Archive(directory).start();
-    assert.equal(archive.records(scope).length, 1);
+    assert.equal(archive.records(scope).filter(item => item.business_key === 'Q1:O100').length, 1);
     const digest = first.outcomes[0].digest;
     await writeFile(join(directory, 'objects', digest), '损坏内容');
     await assert.rejects(archive.original(digest), /完整性/);

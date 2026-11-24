@@ -1,6 +1,6 @@
 # JourneyOffers
 
-JourneyOffers 为业务资料员提供询价上下文领取与原文保管，已支持来源目录预览、直接记录领取、询价内身份、旅客与航段列表、同报价价格冲突以及按业务范围形成收件记录。原文与领域收件结论分开保存，便于复查来源内容。
+JourneyOffers 为业务资料员提供询价上下文领取与原文保管，已支持来源目录预览、直接记录领取、询价内身份、旅客与航段列表、同报价价格冲突以及按业务范围形成收件记录。在保留原有航程报价预览的基础上，新增服务说明资料包采集：按一次询价指定的旅客组合、航段与币种，领取报价引用的行李、改签与附加服务说明，逐项核对覆盖、过期与引用冲突；采集只读取证，不代替下单。原文与领域收件结论分开保存，便于复查来源内容。
 
 ## 环境与运行
 
@@ -26,4 +26,4 @@ docker run --rm --network none journey-offers:local
 
 ## 代码与来源约定
 
-`src/source.mjs` 负责来源目录与原文身份，`src/interpret.mjs` 解释当前领域记录，`src/receiving.mjs` 决定选定范围内的收件结果。`src/archive.mjs` 提供原文保管及收据落库，`src/app.mjs` 连接日常业务，`fixtures/` 与 `src/fixture-source.mjs` 提供可独立复查的本地合作源。详细字段与来源声明见 `docs/source-contract.md`。
+`src/source.mjs` 负责来源目录、询价范围与原文身份，`src/interpret.mjs` 解释报价、关联资料与服务说明，`src/receiving.mjs` 决定选定范围内的报价收件结果，`src/dossier.mjs` 形成可逐项追溯的服务说明资料包。`src/archive.mjs` 提供原文保管及收据落库，`src/app.mjs` 连接日常业务，`fixtures/` 与 `src/fixture-source.mjs` 提供可独立复查的本地合作源。详细字段与来源声明见 `docs/source-contract.md`。

@@ -4,6 +4,15 @@
     "/shopping/Q1": {
       "body": {
         "query": "Q1",
+        "currency": "CNY",
+        "passengers": [
+          "ADT1",
+          "INF1"
+        ],
+        "segments": [
+          "SHA-SIN",
+          "SIN-SHA"
+        ],
         "offers": [
           {
             "id": "O100",
@@ -19,19 +28,24 @@
         "currency": "CNY",
         "total": "1250.50",
         "segments": [
-          "SHA-SIN"
+          "SHA-SIN",
+          "SIN-SHA"
         ],
         "passengers": [
-          "ADT1"
+          "ADT1",
+          "INF1"
         ],
         "expires": "2027-01-01T00:00:00Z"
       }
     },
     "/shopping/Q1/relations/O100": {
       "body": {
+        "query": "Q1",
+        "offer": "O100",
         "services": [
           {
             "id": "S1",
+            "kind": "baggage",
             "passengers": [
               "ADT1"
             ],
@@ -39,8 +53,88 @@
               "SHA-SIN"
             ],
             "ref": "/shopping/Q1/services/S1"
+          },
+          {
+            "id": "S2",
+            "kind": "baggage",
+            "passengers": [
+              "ADT1"
+            ],
+            "segments": [
+              "SIN-SHA"
+            ],
+            "ref": "/shopping/Q1/services/S2"
+          },
+          {
+            "id": "S3",
+            "kind": "change",
+            "passengers": [
+              "ADT1",
+              "INF1"
+            ],
+            "segments": [
+              "SHA-SIN",
+              "SIN-SHA"
+            ],
+            "ref": "/shopping/Q1/services/S3"
+          },
+          {
+            "id": "S4",
+            "kind": "ancillary",
+            "passengers": [
+              "ADT1",
+              "INF1"
+            ],
+            "segments": [
+              "SHA-SIN",
+              "SIN-SHA"
+            ],
+            "ref": "/shopping/Q1/services/S4"
           }
         ]
+      }
+    },
+    "/shopping/Q1/services/S1": {
+      "body": {
+        "id": "S1",
+        "query": "Q1",
+        "kind": "baggage",
+        "description": "成人去程免费托运一件二十三公斤",
+        "amount": "0.00",
+        "currency": "CNY",
+        "expires": "2027-01-01T00:00:00Z"
+      }
+    },
+    "/shopping/Q1/services/S2": {
+      "body": {
+        "id": "S2",
+        "query": "Q1",
+        "kind": "baggage",
+        "description": "成人回程免费托运一件二十三公斤",
+        "amount": "0.00",
+        "currency": "CNY",
+        "expires": "2027-01-01T00:00:00Z"
+      }
+    },
+    "/shopping/Q1/services/S3": {
+      "body": {
+        "id": "S3",
+        "query": "Q1",
+        "kind": "change",
+        "description": "起飞前改签按票面差额加收服务费",
+        "amount": "300.00",
+        "currency": "CNY",
+        "expires": "2027-01-01T00:00:00Z"
+      }
+    },
+    "/shopping/Q1/services/S4": {
+      "body": {
+        "id": "S4",
+        "query": "Q1",
+        "kind": "ancillary",
+        "description": "预选座位与餐食说明",
+        "currency": "CNY",
+        "expires": "2027-01-01T00:00:00Z"
       }
     }
   },

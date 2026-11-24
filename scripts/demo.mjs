@@ -15,5 +15,8 @@ try {
   const result = await collect(new SourceClient(source.url), archive, fixture.scope);
   console.log(JSON.stringify(result, null, 2));
   console.log('已保存原文与收件记录：', archive.records(fixture.scope).length);
+  for (const dossier of result.dossiers) {
+    console.log(`资料包 ${dossier.reference}：${dossier.status}，冲突 ${dossier.conflicts} 项，缺说明 ${dossier.missing} 格，过期 ${dossier.expired.length} 项，重报 ${dossier.reissued.length} 项`);
+  }
   if (!result.complete) process.exitCode = 1;
 } finally { archive.close(); await source.close();  await rm(directory, { recursive: true, force: true }); }

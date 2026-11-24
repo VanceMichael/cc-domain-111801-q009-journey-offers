@@ -27,6 +27,10 @@ export class Archive {
     this.database.prepare('INSERT OR IGNORE INTO evidence VALUES(?,?,?,?)').run(digest, document.location, document.observedAt, document.bytes.length);
     return digest;
   }
+  async preserveEvidence(payload) {
+    const bytes = Buffer.from(JSON.stringify(payload));
+    return this.preserve({ bytes, location: 'domain:dossier', observedAt: new Date().toISOString() });
+  }
   put(scope, key, digest, record, decision) {
     if (!this.database.prepare('SELECT digest FROM evidence WHERE digest=?').get(digest)) throw new Error('原文尚未保存');
     this.database.prepare('INSERT OR IGNORE INTO receipts VALUES(?,?,?,?,?)').run(scope, key, digest, JSON.stringify(record), JSON.stringify(decision));
